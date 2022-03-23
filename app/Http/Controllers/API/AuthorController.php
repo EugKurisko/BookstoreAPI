@@ -50,4 +50,14 @@ class AuthorController extends Controller
         $data = $request->all();
         return AuthorResource::make($this->authorService->updateAuthor(Author::findOrFail($authorId), $data));
     }
+
+    /**
+     * @param int $authorId
+     * @return AuthorResource
+     */
+    public function showAuthor(int $authorId): AuthorResource
+    {
+        return AuthorResource::make(Author::findOrFail($authorId));
+    }
+
 }
