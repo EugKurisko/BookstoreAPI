@@ -12,12 +12,19 @@ class ReservationService
      */
     protected $reservationRepository;
 
+    /**
+     * @var BookService
+     */
+    protected $bookService;
+
     public function __construct
     (
-        ReservationRepository $reservationRepository
+        ReservationRepository $reservationRepository,
+        BookService $bookService
     )
     {
         $this->reservationRepository = $reservationRepository;
+        $this->bookService = $bookService;
     }
 
     /**
@@ -26,6 +33,8 @@ class ReservationService
      */
     public function reserve(array $data): Reservation
     {
-        return $this->reservationRepository->create($data);
+        $reservation = $this->reservationRepository->create($data);
+        $this->bookService->reduceAmountOfBooks($reservation->quantity, $reservation->book);
+        return $reservation;
     }
 }

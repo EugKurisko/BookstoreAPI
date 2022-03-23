@@ -55,4 +55,14 @@ class BookService
         return $this->bookRepository->update($book, $data);
     }
 
+    /**
+     * @param int $quantity
+     * @param Book $book
+     * @return Book
+     */
+    public function reduceAmountOfBooks(int $quantity, Book $book): Book
+    {
+        return $this->bookRepository->update($book, ['amount' => $book->amount - $quantity]);
+    }
+
 }
