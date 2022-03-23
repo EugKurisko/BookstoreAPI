@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Author;
 use App\Repositories\AuthorRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Throwable;
 
 class AuthorService
 {
@@ -21,9 +22,18 @@ class AuthorService
     /**
      * @return Author[]|Collection
      */
-    public function getAll()
+    public function getAllAuthors()
     {
         return Author::all();
+    }
+
+
+    /**
+     * @return void
+     */
+    public function getAllAuthorsWithBooks()
+    {
+        return Author::whereHas('books')->get();
     }
 
     /**
@@ -39,6 +49,7 @@ class AuthorService
      * @param Author $author
      * @param array $data
      * @return Author
+     * @throws Throwable
      */
     public function updateAuthor(Author $author, array $data): Author
     {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Author\CreateAuthorRequest;
 use App\Http\Requests\Author\UpdateAuthorRequest;
 use App\Http\Resources\Author\AllAuthorsCollection;
+use App\Http\Resources\Author\AllAuthorsWithBooksCollection;
 use App\Http\Resources\Author\AuthorResource;
 use App\Models\Author;
 use App\Services\AuthorService;
@@ -26,9 +27,20 @@ class AuthorController extends Controller
         $this->authorService = $authorService;
     }
 
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function allAuthors(): AnonymousResourceCollection
     {
-        return AllAuthorsCollection::collection($this->authorService->getAll());
+        return AllAuthorsCollection::collection($this->authorService->getAllAuthors());
+    }
+
+    /**
+     * @return AnonymousResourceCollection
+     */
+    public function allAuthorsWithBooks(): AnonymousResourceCollection
+    {
+        return AllAuthorsWithBooksCollection::collection($this->authorService->getAllAuthorsWithBooks());
     }
 
     /**

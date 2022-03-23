@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Author extends Model
 {
@@ -13,4 +14,12 @@ class Author extends Model
         'first_name',
         'last_name',
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function books(): HasMany
+    {
+        return $this->hasMany(Book::class);
+    }
 }
