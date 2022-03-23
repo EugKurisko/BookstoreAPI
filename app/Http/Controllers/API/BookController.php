@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Book\CreateBookRequest;
 use App\Http\Resources\Book\AllBooksCollection;
+use App\Http\Resources\Book\BookResource;
 use App\Services\BookService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -28,5 +30,14 @@ class BookController extends Controller
     public function allBooks(): AnonymousResourceCollection
     {
         return AllBooksCollection::collection($this->bookService->getAll());
+    }
+
+    /**
+     * @param CreateBookRequest $request
+     * @return BookResource
+     */
+    public function createBook(CreateBookRequest $request): BookResource
+    {
+        return BookResource::make($this->bookService->storeBook($request->all()));
     }
 }

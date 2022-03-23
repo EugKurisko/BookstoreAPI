@@ -31,5 +31,6 @@ Route::group(['namespace' => 'API'], function () {
 
     Route::group(['prefix' => 'books'], function () {
        Route::get('/all', [BookController::class, 'allBooks']);
+       Route::post('/create', [BookController::class, 'createBook']);
     });
 });
