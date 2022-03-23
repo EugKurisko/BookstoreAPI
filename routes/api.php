@@ -24,4 +24,5 @@ Route::group(['namespace' => 'API', 'prefix' => 'authors'], function () {
     Route::post('/create', [AuthorController::class, 'createAuthor']);
     Route::post('{author_id}/update', [AuthorController::class, 'updateAuthor']);
     Route::get('{author_id}/show', [AuthorController::class, 'showAuthor']);
+    Route::post('{author_id}/delete', [AuthorController::class, 'deleteAuthor']);
 });

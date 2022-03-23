@@ -60,4 +60,13 @@ class AuthorController extends Controller
         return AuthorResource::make(Author::findOrFail($authorId));
     }
 
+    /**
+     * @param int $authorId
+     * @return bool
+     */
+    public function deleteAuthor(int $authorId): bool
+    {
+        return (bool)Author::findOrFail($authorId)->delete();
+    }
+
 }
