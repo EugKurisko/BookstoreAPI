@@ -33,5 +33,6 @@ Route::group(['namespace' => 'API'], function () {
        Route::get('/all', [BookController::class, 'allBooks']);
        Route::post('/create', [BookController::class, 'createBook']);
        Route::get('{book_id}/show', [BookController::class, 'showBook']);
+       Route::post('{book_id}/update', [BookController::class, 'updateBook']);
     });
 });

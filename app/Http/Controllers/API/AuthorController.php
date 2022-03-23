@@ -47,8 +47,7 @@ class AuthorController extends Controller
      */
     public function updateAuthor(int $authorId, UpdateAuthorRequest $request): AuthorResource
     {
-        $data = $request->all();
-        return AuthorResource::make($this->authorService->updateAuthor(Author::findOrFail($authorId), $data));
+        return AuthorResource::make($this->authorService->updateAuthor(Author::findOrFail($authorId), $request->all()));
     }
 
     /**

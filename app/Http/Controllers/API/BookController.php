@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Book\CreateBookRequest;
+use App\Http\Requests\Book\UpdateBookRequest;
 use App\Http\Resources\Book\AllBooksCollection;
 use App\Http\Resources\Book\BookResource;
 use App\Models\Book;
@@ -49,6 +50,16 @@ class BookController extends Controller
     public function showBook(int $bookId): BookResource
     {
         return BookResource::make(Book::findOrFail($bookId));
+    }
+
+    /**
+     * @param int $bookId
+     * @param UpdateBookRequest $request
+     * @return BookResource
+     */
+    public function updateBook(int $bookId, UpdateBookRequest $request): BookResource
+    {
+        return BookResource::make($this->bookService->updateBook(Book::findOrFail($bookId), $request->all()));
     }
 
 }

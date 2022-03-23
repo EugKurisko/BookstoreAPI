@@ -37,4 +37,14 @@ class BookService
         return $this->bookRepository->create($data);
     }
 
+    /**
+     * @param Book $book
+     * @param array $data
+     * @return Book
+     */
+    public function updateBook(Book $book, array $data): Book
+    {
+        return $this->bookRepository->update($book, $data);
+    }
+
 }

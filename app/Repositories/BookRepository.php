@@ -16,4 +16,16 @@ class BookRepository
         $book->save();
         return $book;
     }
+
+    /**
+     * @param Book $book
+     * @param array $data
+     * @return Book
+     */
+    public function update(Book $book, array $data): Book
+    {
+        $book->fill($data);
+        $book->save();
+        return $book;
+    }
 }
