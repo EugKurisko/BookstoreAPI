@@ -23,9 +23,17 @@ class BookService
     /**
      * @return Book[]|Collection
      */
-    public function getAll()
+    public function getAllBooks()
     {
         return Book::all();
+    }
+
+    /**
+     * @return void
+     */
+    public function getAllBooksWithAuthors(): Collection
+    {
+        return Book::whereHas('author')->get();
     }
 
     /**

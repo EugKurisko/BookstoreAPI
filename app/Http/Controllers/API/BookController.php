@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Book\CreateBookRequest;
 use App\Http\Requests\Book\UpdateBookRequest;
 use App\Http\Resources\Book\AllBooksCollection;
+use App\Http\Resources\Book\AllBooksWithAuthorsCollection;
 use App\Http\Resources\Book\BookResource;
 use App\Models\Book;
 use App\Services\BookService;
@@ -31,8 +32,17 @@ class BookController extends Controller
      */
     public function allBooks(): AnonymousResourceCollection
     {
-        return AllBooksCollection::collection($this->bookService->getAll());
+        return AllBooksCollection::collection($this->bookService->getAllBooks());
     }
+
+    /**
+     * @return AnonymousResourceCollection
+     */
+    public function allBooksWithAuthors(): AnonymousResourceCollection
+    {
+        return AllBooksWithAuthorsCollection::collection($this->bookService->getAllBooksWithAuthors());
+    }
+
 
     /**
      * @param CreateBookRequest $request
