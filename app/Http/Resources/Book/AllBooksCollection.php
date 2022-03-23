@@ -20,6 +20,7 @@ class AllBooksCollection extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'short_description' => $this->short_description,
+            'amount' => $this->amount,
             'author' => AuthorResource::make($this->author),
         ];
     }
