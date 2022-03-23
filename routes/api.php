@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthorController;
 use App\Http\Controllers\API\BookController;
+use App\Http\Controllers\API\ReservationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,9 @@ Route::group(['namespace' => 'API'], function () {
        Route::get('{book_id}/show', [BookController::class, 'showBook']);
        Route::post('{book_id}/update', [BookController::class, 'updateBook']);
        Route::post('{book_id}/delete', [BookController::class, 'deleteBook']);
+    });
+
+    Route::group(['prefix' => 'reservations'], function () {
+       Route::post('/reserve', [ReservationController::class, 'reserveBook']);
     });
 });

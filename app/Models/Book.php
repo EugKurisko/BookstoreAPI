@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * Class Book
+ * @property int $id
+ * @property int $author_id
+ * @property string $title
+ * @property string $short_description
+ * @property int $amount
+ *
+ * @property Author $author
+ */
 class Book extends Model
 {
     use HasFactory;

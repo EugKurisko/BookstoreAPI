@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Author;
 
 use App\Http\Resources\Book\AllBooksCollection;
+use App\Models\Author;
 
 class AllAuthorsWithBooksCollection extends AllAuthorsCollection
 {
@@ -13,6 +14,7 @@ class AllAuthorsWithBooksCollection extends AllAuthorsCollection
      */
     public function toArray($request): array
     {
+        /** @var Author $this */
         $result = parent::toArray($request);
         $result['books'] = AllBooksCollection::collection($this->books);
 
