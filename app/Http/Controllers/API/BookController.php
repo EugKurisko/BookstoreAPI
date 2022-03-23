@@ -62,4 +62,12 @@ class BookController extends Controller
         return BookResource::make($this->bookService->updateBook(Book::findOrFail($bookId), $request->all()));
     }
 
+    /**
+     * @param int $bookId
+     * @return bool
+     */
+    public function deleteBook(int $bookId): bool
+    {
+        return (bool)Book::findOrFail($bookId)->delete();
+    }
 }
