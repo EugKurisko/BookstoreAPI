@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+
+    php:
+        build: docker/php
+        container_name: book-php
+        volumes:
+            - .:/var/www
+            - mysql-files:/var/lib/mysql-files:rw
+        environment:
+            XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1"
+            PHP_IDE_CONFIG: "serverName=Docker"
+        networks:
+            - backend
+
+    nginx:
+        image: nginx:alpine
+        container_name: book-nginx
+        ports:
+            - 80:80
+        volumes:
+            - .:/var/www
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        networks:
+            - backend
+
+    mysql:
+        image: mysql:5.7
+        container_name: book-mysql
+        volumes:
+            - dbdata:/var/lib/mysql
+            - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+            - mysql-files:/var/lib/mysql-files:rw
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: books
+        networks:
+            - backend
+
+    adminer:
+        image: adminer
+        container_name: book-adminer
+        ports:
+            - 8080:8080
+        networks:
+            - backend
+
+networks:
+    backend:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.220.0/28
+
+volumes:
+    dbdata:
+        driver: local
+    mysql-files:
+        driver: local
