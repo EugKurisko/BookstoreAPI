@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Book\CreateBookRequest;
 use App\Http\Resources\Book\AllBooksCollection;
 use App\Http\Resources\Book\BookResource;
+use App\Models\Book;
 use App\Services\BookService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -40,4 +41,14 @@ class BookController extends Controller
     {
         return BookResource::make($this->bookService->storeBook($request->all()));
     }
+
+    /**
+     * @param int $bookId
+     * @return BookResource
+     */
+    public function showBook(int $bookId): BookResource
+    {
+        return BookResource::make(Book::findOrFail($bookId));
+    }
+
 }
