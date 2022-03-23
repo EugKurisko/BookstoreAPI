@@ -17,6 +17,7 @@ class AuthorService
     {
         $this->authorRepository = $authorRepository;
     }
+
     /**
      * @return Author[]|Collection
      */
