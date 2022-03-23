@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Author;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAuthorRequest extends CreateAuthorRequest
+class CreateAuthorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,9 @@ class UpdateAuthorRequest extends CreateAuthorRequest
      */
     public function rules(): array
     {
-        return parent::rules();
+        return [
+            'first_name' => 'required|string|min:1|max:32',
+            'last_name' => 'required|string|min:1|max:32',
+        ];
     }
 }

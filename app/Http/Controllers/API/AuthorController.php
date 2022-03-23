@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateAuthorRequest;
-use App\Http\Requests\UpdateAuthorRequest;
-use App\Http\Resources\AllAuthorsCollection;
-use App\Http\Resources\AuthorResource;
+use App\Http\Requests\Author\CreateAuthorRequest;
+use App\Http\Requests\Author\UpdateAuthorRequest;
+use App\Http\Resources\Author\AllAuthorsCollection;
+use App\Http\Resources\Author\AuthorResource;
 use App\Models\Author;
 use App\Services\AuthorService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -41,7 +41,7 @@ class AuthorController extends Controller
     }
 
     /**
-     * @param Author $author
+     * @param int $authorId
      * @param UpdateAuthorRequest $request
      * @return AuthorResource
      */

@@ -1,21 +1,19 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Author;
 
 use App\Models\Author;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AuthorResource extends JsonResource
+class AllAuthorsCollection extends JsonResource
 {
-    /**
     /**
      * @param $request
      * @return array
      */
     public function toArray($request): array
     {
-        /*** @var Author $this */
+        /** @var Author $this */
         return [
             'id' => $this->id,
             'last_name' => $this->last_name,

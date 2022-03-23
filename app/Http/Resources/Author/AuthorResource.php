@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Author;
 
-use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AllBooksCollection extends JsonResource
+class AuthorResource extends JsonResource
 {
+    /**
     /**
      * @param $request
      * @return array
      */
     public function toArray($request): array
     {
-        /** @var Book $this */
-
+        /*** @var Author $this */
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'short_description' => $this->short_description,
+            'last_name' => $this->last_name,
+            'first_name' => $this->first_name,
         ];
     }
 }
