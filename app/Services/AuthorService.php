@@ -33,4 +33,14 @@ class AuthorService
     {
         return $this->authorRepository->create($data);
     }
+
+    /**
+     * @param Author $author
+     * @param array $data
+     * @return Author
+     */
+    public function updateAuthor(Author $author, array $data): Author
+    {
+        return $this->authorRepository->update($author, $data);
+    }
 }

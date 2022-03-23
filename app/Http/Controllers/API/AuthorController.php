@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
 use App\Http\Resources\AllAuthorsCollection;
+use App\Http\Resources\AuthorResource;
 use App\Models\Author;
 use App\Services\AuthorService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -31,10 +33,21 @@ class AuthorController extends Controller
 
     /**
      * @param CreateAuthorRequest $request
-     * @return Author
+     * @return AuthorResource
      */
-    public function createAuthor(CreateAuthorRequest $request): Author
+    public function createAuthor(CreateAuthorRequest $request): AuthorResource
     {
-        return $this->authorService->storeAuthor($request->all());
+        return AuthorResource::make($this->authorService->storeAuthor($request->all()));
+    }
+
+    /**
+     * @param Author $author
+     * @param UpdateAuthorRequest $request
+     * @return AuthorResource
+     */
+    public function updateAuthor(int $authorId, UpdateAuthorRequest $request): AuthorResource
+    {
+        $data = $request->all();
+        return AuthorResource::make($this->authorService->updateAuthor(Author::findOrFail($authorId), $data));
     }
 }

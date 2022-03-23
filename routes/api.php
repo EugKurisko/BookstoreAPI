@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'API', 'prefix' => 'authors'], function () {
     Route::get('/all', [AuthorController::class, 'allAuthors']);
     Route::post('/create', [AuthorController::class, 'createAuthor']);
+    Route::post('{author_id}/update', [AuthorController::class, 'updateAuthor']);
 });

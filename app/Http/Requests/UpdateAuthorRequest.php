@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateAuthorRequest extends FormRequest
+class UpdateAuthorRequest extends CreateAuthorRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,6 @@ class CreateAuthorRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'first_name' => 'required|string|min:1|max:32',
-            'last_name' => 'required|string|min:1|max:32',
-        ];
+        return parent::rules();
     }
 }
