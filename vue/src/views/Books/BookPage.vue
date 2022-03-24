@@ -74,7 +74,13 @@ export default {
                 this.$router.push(`/books/all`)
             }).
             catch((error) => console.log(error))
-        }
+        },
+        updateBookRedirect() {
+            this.$router.push(`/books/${this.bookData.id}/update`,
+                {
+                    bookId: this.bookData.id,
+                })
+        },
     }
 }
 </script>
