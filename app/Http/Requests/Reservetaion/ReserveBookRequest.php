@@ -30,7 +30,7 @@ class ReserveBookRequest extends FormRequest
             'quantity' => [
                 'required',
                 'numeric',
-                'min:' . Reservation::MIN_RESERVATION_QUANTITY,
+                'min:1',
                 new ReserveBookRule()
                 ],
             'email' => 'required|max:255|regex:/(.*)@gmail\.com/i', // something@gmail.com

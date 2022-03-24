@@ -21,8 +21,6 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    public const MIN_RESERVATION_QUANTITY = 1;
-
     protected $fillable = [
         'book_id',
         'email',
