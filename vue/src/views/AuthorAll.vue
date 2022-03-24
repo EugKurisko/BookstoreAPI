@@ -1,6 +1,8 @@
 <template>
-    <div>
-
+    <div v-for="author in authors" :key="author.id">
+        <p>
+            {{ author.first_name }} {{ author.last_name }}
+        </p>
     </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
         getAuthors() {
             axios.get('http://localhost/api/authors/all').
                 then((response) => {
-                    console.log(response.data)
+                    this.authors = response.data.data
             }).
             catch((error) => console.log(error))
         }
