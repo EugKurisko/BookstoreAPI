@@ -57,9 +57,9 @@ class BookController extends Controller
      * @param int $bookId
      * @return BookResource
      */
-    public function showBook(int $bookId): BookResource
+    public function showBook(Book $book): BookResource
     {
-        return BookResource::make(Book::findOrFail($bookId));
+        return BookResource::make($book);
     }
 
     /**
@@ -67,17 +67,17 @@ class BookController extends Controller
      * @param UpdateBookRequest $request
      * @return BookResource
      */
-    public function updateBook(int $bookId, UpdateBookRequest $request): BookResource
+    public function updateBook(Book $book, UpdateBookRequest $request): BookResource
     {
-        return BookResource::make($this->bookService->updateBook(Book::findOrFail($bookId), $request->all()));
+        return BookResource::make($this->bookService->updateBook($book, $request->all()));
     }
 
     /**
      * @param int $bookId
      * @return bool
      */
-    public function deleteBook(int $bookId): bool
+    public function deleteBook(Book $book): bool
     {
-        return (bool)Book::findOrFail($bookId)->delete();
+        return (bool)$book->delete();
     }
 }
