@@ -1,5 +1,10 @@
 <template>
-    <AuthorIterator v-bind:authors="this.authors"/>
+    <div v-if="this.authors.length > 0">
+        <AuthorIterator v-bind:authors="this.authors"/>
+    </div>
+    <div v-else>
+        There are no authors with books
+    </div>
 </template>
 
 <script>

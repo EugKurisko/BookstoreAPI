@@ -1,5 +1,10 @@
 <template>
-    <BookIterator v-bind:books="this.books"/>
+    <div v-if="this.books.length > 0">
+        <BookIterator v-bind:books="this.books"/>
+    </div>
+    <div v-else>
+        There are no books
+    </div>
 </template>
 
 <script>
