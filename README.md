@@ -1,4 +1,4 @@
-run commands:
+to run app run commands:
 docker-compose up -d
 docker exec -it book-php bash
     php artisan migrate
