@@ -33,7 +33,7 @@ class ReserveBookRequest extends FormRequest
                 'min:1',
                 new ReserveBookRule()
                 ],
-            'email' => 'required|max:255|regex:/(.*)@gmail\.com/i', // something@gmail.com
+            'email' => 'required|email',
         ];
     }
 }
