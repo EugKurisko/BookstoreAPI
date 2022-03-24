@@ -29,7 +29,7 @@ class AuthorService
 
 
     /**
-     * @return void
+     * @return Author[]|Collection
      */
     public function getAllAuthorsWithBooks()
     {

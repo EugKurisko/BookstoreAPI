@@ -11,6 +11,7 @@ use App\Http\Resources\Author\AuthorResource;
 use App\Models\Author;
 use App\Services\AuthorService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Throwable;
 
 class AuthorController extends Controller
 {
@@ -53,31 +54,32 @@ class AuthorController extends Controller
     }
 
     /**
-     * @param int $authorId
+     * @param Author $author
      * @param UpdateAuthorRequest $request
      * @return AuthorResource
+     * @throws Throwable
      */
-    public function updateAuthor(int $authorId, UpdateAuthorRequest $request): AuthorResource
+    public function updateAuthor(Author $author, UpdateAuthorRequest $request): AuthorResource
     {
-        return AuthorResource::make($this->authorService->updateAuthor(Author::findOrFail($authorId), $request->all()));
+        return AuthorResource::make($this->authorService->updateAuthor($author, $request->all()));
     }
 
     /**
-     * @param int $authorId
+     * @param Author $author
      * @return AuthorResource
      */
-    public function showAuthor(int $authorId): AuthorResource
+    public function showAuthor(Author $author): AuthorResource
     {
-        return AuthorResource::make(Author::findOrFail($authorId));
+        return AuthorResource::make($author);
     }
 
     /**
-     * @param int $authorId
+     * @param Author $author
      * @return bool
      */
-    public function deleteAuthor(int $authorId): bool
+    public function deleteAuthor(Author $author): bool
     {
-        return (bool)Author::findOrFail($authorId)->delete();
+        return (bool)$author->delete();
     }
 
 }
