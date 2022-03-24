@@ -5,6 +5,7 @@ import AllRoutes from "../views/AllRoutes.vue";
 import BookAll from "../views/Books/BookAll.vue";
 import BookAllWithAuthors from "../views/Books/BookAllWithAuthors.vue";
 import AuthorPage from "../views/Authors/AuthorPage.vue";
+import BookPage from "../views/Books/BookPage.vue";
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: '/authors/:authorId/show',
         name: 'authorPage',
         component: AuthorPage
+    },
+    {
+        path: '/books/:bookId/show',
+        name: 'bookPage',
+        component: BookPage
     },
 ];
 

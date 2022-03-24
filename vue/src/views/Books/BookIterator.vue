@@ -1,6 +1,6 @@
 <template>
     <div v-for="book in books" :key="book.id">
-        <a @click="">
+        <a @click="getBook(book.id)">
             {{ book.title }}
         </a> <br>
 
@@ -12,6 +12,14 @@ export default {
     name: "BookIterator",
     props: {
         books: Array
+    },
+    methods: {
+        getBook(bookId) {
+            this.$router.push(`/books/${bookId}/show`,
+                {
+                    bookId: bookId,
+                })
+        }
     }
 }
 </script>

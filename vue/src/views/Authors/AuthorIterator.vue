@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
     name: "AuthorIterator",
     props: {
@@ -24,18 +23,8 @@ export default {
                 {
                     authorId: authorId,
                 })
-            // axios.get(`http://localhost/api/authors/${authorId}/show`).
-            // then((response) => {
-            //     this.author = response.data.data
-            //     this.$router.push(`/authors/${authorId}/show`,
-            //         {
-            //         authorId: authorId,
-            //     })
-            // }).
-            // catch((error) => console.log(error))
         }
     }
-
 }
 </script>
 

@@ -18,7 +18,6 @@ export default {
         axios.get(`http://localhost/api/authors/${authorId}/show`).
         then((response) => {
             this.authorData = response.data.data
-            console.log(this.authorData)
         }).
         catch((error) => console.log(error))
     }
