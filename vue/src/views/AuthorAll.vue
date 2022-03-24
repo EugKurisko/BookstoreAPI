@@ -3,8 +3,19 @@
 </template>
 
 <script>
+// import axios from 'axios'
 export default {
-    name: "AuthorAll"
+    name: "AuthorAll",
+    data() {
+        return {
+            authors: [],
+        }
+    },
+    methods: {
+        getAuthors() {
+            axios.get('')
+        }
+    }
 }
 </script>
 
