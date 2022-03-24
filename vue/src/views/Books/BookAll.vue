@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         getBooks() {
-            axios.get('http://localhost/api/books/all').
+            axios.get('api/books/all').
             then((response) => {
                 this.books = response.data.data
             }).

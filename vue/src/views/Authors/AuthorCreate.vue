@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         createAuthor() {
-            axios.post('http://localhost/api/authors/create', this.fields).
+            axios.post('api/authors/create', this.fields).
             then((response) => {
                 this.fields = {};
                 this.success = true;

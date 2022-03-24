@@ -23,12 +23,12 @@ export default {
     },
     created() {
         const bookId  = this.$route.params.bookId;
-        axios.get(`http://localhost/api/books/${bookId}/show`).
+        axios.get(`api/books/${bookId}/show`).
         then((response) => {
             this.fields = response.data.data
         }).
         catch((error) => console.log(error))
-        axios.get(`http://localhost/api/authors/all`).
+        axios.get(`api/authors/all`).
         then((response) => {
             this.authors = response.data.data
         }).
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         updateBook() {
-            axios.post(`http://localhost/api/books/${this.fields.id}/update`, this.fields).
+            axios.post(`api/books/${this.fields.id}/update`, this.fields).
             then((response) => {
                 this.success = true;
                 setTimeout(() => {

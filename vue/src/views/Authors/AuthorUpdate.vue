@@ -22,7 +22,7 @@ export default {
     },
     created() {
         const authorId  = this.$route.params.authorId;
-        axios.get(`http://localhost/api/authors/${authorId}/show`).
+        axios.get(`api/authors/${authorId}/show`).
         then((response) => {
             this.fields = response.data.data
         }).
@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         updateAuthor() {
-            axios.post(`http://localhost/api/authors/${this.fields.id}/update`, this.fields).
+            axios.post(`api/authors/${this.fields.id}/update`, this.fields).
             then((response) => {
                 this.success = true;
                 setTimeout(() => {

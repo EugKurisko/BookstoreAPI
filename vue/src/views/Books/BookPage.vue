@@ -43,7 +43,7 @@ export default {
     },
     created() {
         const bookId  = this.$route.params.bookId;
-        axios.get(`http://localhost/api/books/${bookId}/show`).
+        axios.get(`api/books/${bookId}/show`).
         then((response) => {
             this.bookData = response.data.data
         }).
@@ -58,7 +58,7 @@ export default {
         },
         reserve(){
             this.fields.book_id = this.bookData.id;
-            axios.post('http://localhost/api/reservations/reserve', this.fields).
+            axios.post('api/reservations/reserve', this.fields).
                 then((response) => {
                     this.fields = {};
                     this.success = true;
@@ -69,7 +69,7 @@ export default {
                 catch((error) => console.log(error))
         },
         deleteBook() {
-            axios.post(`http://localhost/api/books/${this.bookData.id}/delete`, this.fields).
+            axios.post(`api/books/${this.bookData.id}/delete`, this.fields).
             then((response) => {
                 this.$router.push(`/books/all`)
             }).

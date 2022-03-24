@@ -21,14 +21,14 @@ export default {
         }
     },
     created() {
-        axios.get('http://localhost/api/authors/all').
+        axios.get('api/authors/all').
             then(response => {
                 this.authors = response.data.data;
         }).catch(error => console.log(error))
     },
     methods: {
         createBook() {
-            axios.post('http://localhost/api/books/create', this.fields).
+            axios.post('api/books/create', this.fields).
             then((response) => {
                 this.fields = {};
                 this.success = true;

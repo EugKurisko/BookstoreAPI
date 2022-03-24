@@ -32,7 +32,7 @@ export default {
     },
     created() {
         const authorId  = this.$route.params.authorId;
-        axios.get(`http://localhost/api/authors/${authorId}/show`).
+        axios.get(`api/authors/${authorId}/show`).
         then((response) => {
             this.authorData = response.data.data
         }).
@@ -46,7 +46,7 @@ export default {
                 })
         },
         deleteAuthor() {
-            axios.post(`http://localhost/api/authors/${this.authorData.id}/delete`, this.fields).
+            axios.post(`api/authors/${this.authorData.id}/delete`, this.fields).
             then((response) => {
                this.$router.push(`/authors/all`)
             }).

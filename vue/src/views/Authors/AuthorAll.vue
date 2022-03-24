@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         getAuthors() {
-            axios.get('http://localhost/api/authors/all').
+            axios.get('api/authors/all').
                 then((response) => {
                     this.authors = response.data.data
             }).
