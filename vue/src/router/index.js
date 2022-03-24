@@ -18,7 +18,7 @@ const routes = [
         component: AuthorAll
     },
     {
-        path: '/routes',
+        path: '/',
         name: 'routes',
         component: AllRoutes
     },

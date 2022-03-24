@@ -18,6 +18,6 @@ npm run dev
 
 
 follow link
-http://localhost:3000/routes
+http://localhost:3000
 
 

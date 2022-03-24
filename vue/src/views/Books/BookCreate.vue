@@ -33,7 +33,7 @@ export default {
                 this.fields = {};
                 this.success = true;
                 setTimeout(() => {
-                    location.reload()
+                    this.success = false;
                 }, 3000)
             }).
             catch((error) => console.log(error))
