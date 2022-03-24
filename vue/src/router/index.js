@@ -2,6 +2,8 @@ import {createRouter, createWebHistory} from "vue-router";
 import AuthorAll from "../views/Authors/AuthorAll.vue";
 import AuthorAllWithBooks from "../views/Authors/AuthorAllWithBooks.vue";
 import AllRoutes from "../views/AllRoutes.vue";
+import BookAll from "../views/Books/BookAll.vue";
+import BookAllWithAuthors from "../views/Books/BookAllWithAuthors.vue";
 
 const routes = [
     {
@@ -18,6 +20,16 @@ const routes = [
         path: '/authors/allWithBooks',
         name: 'allAuthorsWithBooks',
         component: AuthorAllWithBooks
+    },
+    {
+        path: '/books/all',
+        name: 'allBooks',
+        component: BookAll
+    },
+    {
+        path: '/books/allWithAuthors',
+        name: 'allBooksWithAuthors',
+        component: BookAllWithAuthors
     },
 ];
 
