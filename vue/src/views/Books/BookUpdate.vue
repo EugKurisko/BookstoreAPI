@@ -1,7 +1,7 @@
 <template>
     <div v-show="success">Book was successfully updated</div>
     <form @submit.prevent="updateBook">
-        <BookFields v-bind:book="this.fields"/>
+        <BookFields v-bind:book="this.fields" v-bind:authors="this.authors"/>
     </form>
 </template>
 
@@ -18,6 +18,7 @@ export default {
         return {
             fields: {},
             success: false,
+            authors: [],
         }
     },
     created() {
@@ -25,6 +26,11 @@ export default {
         axios.get(`http://localhost/api/books/${bookId}/show`).
         then((response) => {
             this.fields = response.data.data
+        }).
+        catch((error) => console.log(error))
+        axios.get(`http://localhost/api/authors/all`).
+        then((response) => {
+            this.authors = response.data.data
         }).
         catch((error) => console.log(error))
     },
