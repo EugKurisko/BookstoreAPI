@@ -1,15 +1,15 @@
 <template>
-    <div v-for="author in authors" :key="author.id">
-        <p>
-            {{ author.first_name }} {{ author.last_name }}
-        </p>
-    </div>
+    <AuthorIterator v-bind:authors="this.authors"/>
 </template>
 
 <script>
 import axios from 'axios'
+import AuthorIterator from "./AuthorIterator.vue";
 export default {
     name: "AuthorAllWithBooks",
+    components: {
+      AuthorIterator
+    },
     created() {
         this.getAuthorsWithBooks()
     },
