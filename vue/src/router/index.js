@@ -6,6 +6,7 @@ import BookAll from "../views/Books/BookAll.vue";
 import BookAllWithAuthors from "../views/Books/BookAllWithAuthors.vue";
 import AuthorPage from "../views/Authors/AuthorPage.vue";
 import BookPage from "../views/Books/BookPage.vue";
+import AuthorCreate from "../views/Authors/AuthorCreate.vue";
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/books/:bookId/show',
         name: 'bookPage',
         component: BookPage
+    },
+    {
+        path: '/authors/create',
+        name: 'createAuthor',
+        component: AuthorCreate
     },
 ];
 
