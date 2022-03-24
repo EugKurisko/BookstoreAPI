@@ -54,7 +54,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $bookId
+     * @param Book $book
      * @return BookResource
      */
     public function showBook(Book $book): BookResource
@@ -63,7 +63,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $bookId
+     * @param Book $book
      * @param UpdateBookRequest $request
      * @return BookResource
      */
@@ -73,7 +73,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $bookId
+     * @param Book $book
      * @return bool
      */
     public function deleteBook(Book $book): bool
