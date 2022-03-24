@@ -23,6 +23,11 @@
     <div v-else>
         There are now available books to reserve. Visit this page later
     </div>
+    <br><br>
+    <div>
+        <button @click="updateBookRedirect">Update Book</button>
+        <button @click="deleteBook">Delete Book</button>
+    </div>
 </template>
 
 <script>
@@ -62,6 +67,13 @@ export default {
                     }, 3000)
             }).
                 catch((error) => console.log(error))
+        },
+        deleteBook() {
+            axios.post(`http://localhost/api/books/${this.bookData.id}/delete`, this.fields).
+            then((response) => {
+                this.$router.push(`/books/all`)
+            }).
+            catch((error) => console.log(error))
         }
     }
 }
