@@ -4,6 +4,7 @@
     <a href="/books/all">All Books</a><br>
     <a href="/books/allWithAuthors">All Books With Authors</a><br>
     <a href="/authors/create">Create Author</a><br>
+    <a href="/books/create">Create Book</a><br>
 </template>
 
 <script>

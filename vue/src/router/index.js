@@ -8,6 +8,8 @@ import AuthorPage from "../views/Authors/AuthorPage.vue";
 import BookPage from "../views/Books/BookPage.vue";
 import AuthorCreate from "../views/Authors/AuthorCreate.vue";
 import AuthorUpdate from "../views/Authors/AuthorUpdate.vue";
+import BookCreate from "../views/Books/BookCreate.vue";
+import BookUpdate from "../views/Books/BookUpdate.vue";
 
 const routes = [
     {
@@ -54,6 +56,16 @@ const routes = [
         path: '/authors/:authorId/update',
         name: 'updateAuthor',
         component: AuthorUpdate
+    },
+    {
+        path: '/books/create',
+        name: 'createBook',
+        component: BookCreate
+    },
+    {
+        path: '/books/:bookId/update',
+        name: 'updateBook',
+        component: BookUpdate
     },
 ];
 
