@@ -3,7 +3,7 @@
         <p>{{authorData.first_name}} {{authorData.last_name}}</p>
     </div>
 
-    <div v-if="authorData.books.length > 0">
+    <div v-if="authorData.books && authorData.books.length > 0">
         Author's Books:
         <div v-for="book in authorData.books" :key="book.id">
             <a @click="getBook(book.id)">
