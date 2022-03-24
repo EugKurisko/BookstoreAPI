@@ -1,11 +1,16 @@
 <template>
-    <h1>srgvsrv</h1>
+    <div>
+
+    </div>
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
     name: "AuthorAll",
+    created() {
+        this.getAuthors()
+    },
     data() {
         return {
             authors: [],
@@ -13,7 +18,11 @@ export default {
     },
     methods: {
         getAuthors() {
-            axios.get('')
+            axios.get('http://localhost/api/authors/all').
+                then((response) => {
+                    console.log(response.data)
+            }).
+            catch((error) => console.log(error))
         }
     }
 }
