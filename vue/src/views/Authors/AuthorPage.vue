@@ -2,6 +2,19 @@
     <div>
         <p>{{authorData.first_name}} {{authorData.last_name}}</p>
     </div>
+
+    <div v-if="authorData.books.length > 0">
+        Author's Books:
+        <div v-for="book in authorData.books" :key="book.id">
+            <a @click="getBook(book.id)">
+                {{ book.title }}
+            </a>
+        </div>
+    </div>
+    <div v-else>
+        Author has no books
+    </div>
+    <br>
     <div>
         <button @click="updateAuthorRedirect">Update Author</button>
         <button @click="deleteAuthor">Delete Author</button>
@@ -39,6 +52,12 @@ export default {
             }).
             catch((error) => console.log(error))
         },
+        getBook(bookId) {
+            this.$router.push(`/books/${bookId}/show`,
+                {
+                    bookId: bookId,
+                })
+        }
     }
 }
 </script>
