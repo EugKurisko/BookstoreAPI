@@ -1,19 +1,19 @@
 <template>
     <div v-show="success">Author was successfully created</div>
     <form @submit.prevent="createAuthor">
-        First Name: <input type="text" v-model="fields.first_name"><br><br>
-        Last Name: <input type="text" v-model="fields.last_name"><br><br>
-        <button type="submit">
-            Submit
-        </button>
+        <AuthorFields v-bind:author="this.fields"/>
     </form>
 </template>
 
 <script>
 import axios from "axios";
+import AuthorFields from "./AuthorFields.vue";
 
 export default {
     name: "AuthorCreate",
+    components: {
+      AuthorFields
+    },
     data() {
         return {
             fields: {},
