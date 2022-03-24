@@ -4,7 +4,7 @@
     </div>
     <div>
         <button @click="updateAuthorRedirect">Update Author</button>
-        <button>Delete Author</button>
+        <button @click="deleteAuthor">Delete Author</button>
     </div>
 </template>
 
@@ -31,7 +31,14 @@ export default {
                 {
                     authorId: this.authorData.id,
                 })
-        }
+        },
+        deleteAuthor() {
+            axios.post(`http://localhost/api/authors/${this.authorData.id}/delete`, this.fields).
+            then((response) => {
+               this.$router.push(`/authors/all`)
+            }).
+            catch((error) => console.log(error))
+        },
     }
 }
 </script>
