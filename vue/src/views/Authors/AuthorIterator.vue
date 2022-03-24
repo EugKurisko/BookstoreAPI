@@ -12,17 +12,6 @@ export default {
     name: "AuthorIterator",
     props: {
         authors: Array
-    },
-    methods: {
-        showAuthor(authorId) {
-            axios.get(`http://localhost/api/authors/${authorId}/show`).
-                then((response) => {
-                    console.log(response.data)
-            }).
-                catch((error) => {
-                    console.log(error)
-            })
-        }
     }
 }
 </script>

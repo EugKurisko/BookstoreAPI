@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Author;
 
+use App\Http\Resources\Book\AllBooksCollection;
 use App\Models\Author;
 use Illuminate\Http\Resources\Json\JsonResource;
 
