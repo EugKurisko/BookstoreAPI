@@ -16,8 +16,14 @@
 export default {
     name: "BookFields",
     props: {
-        book: Object,
-        authors: Array,
+        book: {
+            type: Object,
+            required: true,
+        },
+        authors: {
+            type: Array,
+            required: true,
+        },
     },
 }
 </script>

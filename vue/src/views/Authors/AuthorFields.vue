@@ -10,7 +10,10 @@
 export default {
     name: "AuthorFields",
     props: {
-        author: Object
+        author: {
+            type: Object,
+            required: true,
+        }
     },
 }
 </script>

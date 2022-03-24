@@ -11,7 +11,10 @@
 export default {
     name: "BookIterator",
     props: {
-        books: Array
+        books: {
+            type: Array,
+            required: true,
+        }
     },
     methods: {
         getBook(bookId) {

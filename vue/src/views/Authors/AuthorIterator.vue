@@ -10,7 +10,10 @@
 export default {
     name: "AuthorIterator",
     props: {
-        authors: Array
+        authors: {
+            type: Array,
+            required: true,
+        }
     },
     data() {
         return {
