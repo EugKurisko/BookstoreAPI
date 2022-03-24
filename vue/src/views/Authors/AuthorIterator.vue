@@ -19,10 +19,7 @@ export default {
     },
     methods: {
         getAuthor(authorId) {
-            this.$router.push(`/authors/${authorId}/show`,
-                {
-                    authorId: authorId,
-                })
+            this.$router.push(`/authors/${authorId}/show`)
         }
     }
 }

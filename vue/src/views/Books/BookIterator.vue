@@ -15,10 +15,7 @@ export default {
     },
     methods: {
         getBook(bookId) {
-            this.$router.push(`/books/${bookId}/show`,
-                {
-                    bookId: bookId,
-                })
+            this.$router.push(`/books/${bookId}/show`)
         }
     }
 }
