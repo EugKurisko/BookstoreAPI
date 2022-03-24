@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from "vue-router";
-import AuthorAll from "../views/AuthorAll.vue";
-import AuthorAllWithBooks from "../views/AuthorAllWithBooks.vue";
+import AuthorAll from "../views/Authors/AuthorAll.vue";
+import AuthorAllWithBooks from "../views/Authors/AuthorAllWithBooks.vue";
 import AllRoutes from "../views/AllRoutes.vue";
 
 const routes = [
